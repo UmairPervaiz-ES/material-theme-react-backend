@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 import dotENV from 'dotenv';
 dotENV.config();
-const {
-    MONGO_URL
-} = process.env;
+const { MONGO_URL } = process.env;
+
 export const connect = () => {
     // Connecting to the database
     return mongoose

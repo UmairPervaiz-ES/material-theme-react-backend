@@ -11,15 +11,15 @@ router.get("/", function (req, res, next) {
 
 router.post("/data", async(req, res, next) => {
 
-  let salt  = await bcrypt.genSalt(10);
-  let generatedPassword = bcrypt.hash('12345678', salt);
+  const salt  = await bcrypt.genSalt(10);
+  let generatedPassword = await bcrypt.hash('12345678', salt);
 
   let obj = {
     name: 'Umair',
     email: 'umair.pervaiz@enlatics.com',
     password: generatedPassword,
   }
-  let user = new userModel(obj);
+  let user = new userModel(obj).save();
 
   let jsonData = {
     InvoiceNumber: "INV-12345", //5
